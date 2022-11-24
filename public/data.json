@@ -1,0 +1,122 @@
+[
+    {
+        "categoryName": "Academic Book",
+        "productName": "A Brief History of Time",
+        "writer": "Stephen Hawking",
+        "image": "https://static-01.daraz.com.bd/p/3c266afd95597a98c884099f7dab76c3.jpg",
+        "location": "Dhaka, Bangladesh",
+        "originalPrice": "230",
+        "resalePrice": "170",
+        "old": "3 years"
+    },
+    {
+        "categoryName": "Academic Book",
+        "productName": "A Vindication of the Rights of Woman",
+        "writer": "Mary Wollstonecraft",
+        "image": "https://m.media-amazon.com/images/I/815T+zBDiDL.jpg",
+        "location": "Khulna, Bangladesh",
+        "originalPrice": "375",
+        "resalePrice": "200",
+        "old": "1.5 years"
+    },
+    {
+        "categoryName": "Academic Book",
+        "productName": "Critique of Pure Reason",
+        "writer": " Immanuel Kant",
+        "image": "https://m.media-amazon.com/images/I/41TPNFIgwGL._AC_SY780_.jpg",
+        "location": "Jashore, Bangladesh",
+        "originalPrice": "800",
+        "resalePrice": "450",
+        "old": "2 years"
+    },
+    {
+        "categoryName": "History Book",
+        "productName": "1491",
+        "writer": "Charles C. Mann",
+        "image": "https://m.media-amazon.com/images/I/91vpSJm2NDL.jpg",
+        "location": "Jashore,Bangladesh",
+        "originalPrice": "1000",
+        "resalePrice": "400",
+        "old": "2 years"
+    },
+    {
+        "categoryName": "History Book",
+        "productName": "The Guns of August",
+        "writer": "Barbara Tuchman",
+        "image": "https://m.media-amazon.com/images/I/81ijRAC+c3L.jpg",
+        "location": "Khulna,Bangladesh",
+        "originalPrice": "700",
+        "resalePrice": "300",
+        "old": "3 years"
+    },
+    {
+        "categoryName": "History Book",
+        "productName": "The Battle for Spain",
+        "writer": "Antony Beevor",
+        "image": "https://m.media-amazon.com/images/I/71vHhh0ZEpL.jpg",
+        "location": "Pabna, Bangladesh",
+        "originalPrice": "700",
+        "resalePrice": "300",
+        "old": "5 years"
+    },
+    {
+        "categoryName": "Motivational",
+        "productName": "Man’s Search for Meaning",
+        "writer": "Victor E. Fankl",
+        "image": "https://static-01.daraz.com.bd/p/d9fc8e54b8b29e5207bf2977cfca3ef6.png",
+        "location": "Dhaka, Bangladesh",
+        "originalPrice": "160",
+        "resalePrice": "100",
+        "old": "2 years"
+    },
+    {
+        "categoryName": "Motivational",
+        "productName": " The Alchemist",
+        "writer": "Paulo Coelho",
+        "image": "https://static-01.daraz.com.bd/p/mdc/4b36eb7c880be867be4ea9bcfd61b397.png",
+        "location": "Jashore,Bangladesh",
+        "originalPrice": "100",
+        "resalePrice": "60",
+        "old": "3 years"
+    },
+    {
+        "categoryName": "Humor",
+        "productName": "s Everyone Hanging Out Without Me",
+        "writer": "Mindy Kaling",
+        "image": "https://m.media-amazon.com/images/I/51ZHLyX94RL.jpg",
+        "location": "Sylhet,Bangladesh",
+        "originalPrice": "490",
+        "resalePrice": "300",
+        "old": "1 year"
+    },
+    {
+        "categoryName": "Humor",
+        "productName": "Me Talk Pretty One Day",
+        "writer": "David Sedaris",
+        "image": "https://m.media-amazon.com/images/I/81Mg+BtxUzL.jpg",
+        "location": "Dhaka, Bangladesh",
+        "originalPrice": "",
+        "resalePrice": "",
+        "old": ""
+    },
+    {
+        "categoryName": "Children’s Books",
+        "productName": "Diper Överlöde (Diary of a Wimpy Kid Series #17)",
+        "writer": "Jeff Kinney",
+        "image": "https://m.media-amazon.com/images/I/819bxLMj91L.jpg",
+        "location": "Sylhet, Bangladesh",
+        "originalPrice": "800",
+        "resalePrice": "400",
+        "old": "2 years"
+    },
+    {
+        "categoryName": "Children’s Books",
+        "productName": "Harry Potter and the Philosopher's Stone Paperback",
+        "writer": "J. K. Rowling",
+        "image": "https://static-01.daraz.com.bd/p/88c8fe011aa2683f66e43efe9922dafc.jpg",
+        "location": "Barisal, Bangladesh",
+        "originalPrice": "",
+        "resalePrice": "",
+        "old": "2 years"
+    }
+]
