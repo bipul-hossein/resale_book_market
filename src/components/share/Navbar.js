@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import useAdmin from '../../hooks/useAdmin';
+import useSeller from '../../hooks/useSeller';
 
 const Navbar = () => {
 
@@ -18,24 +19,26 @@ const Navbar = () => {
             });
     }
 
-
     const [isAdmin] = useAdmin(user?.email)
-    
+    const [isSeller] = useSeller(user?.email)
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="about">About</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
+        {isAdmin && 
+            <li><Link to="/admin_dashboard/">Admin Dashboard</Link></li>
+        }
+        {isSeller && 
+            <li><Link to="/Seller_dashboard/">Seller Dashboard</Link></li>
+        }
         <li><Link>{user?.uid ?
             <React.Fragment>
-                <li><Link onClick={handleSignOut}>logOut</Link></li>
                 <p>{user?.displayName}</p>
+                <li><Link onClick={handleSignOut}>logOut</Link></li>       
             </React.Fragment>
             : <li><Link to="login">Login</Link></li>
         }
         </Link></li>
-        {isAdmin && 
-            <li><Link to="/admin_dashboard/">Dashboard</Link></li>
-        }
+      
 
     </>
 
