@@ -1,12 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const { signIn, googleSignUp } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const location = useLocation();
+    const [loginUserEmail, setCreatedUserEmail] = useState('')
+    const [token] = useToken(loginUserEmail);
+    const navigate = useNavigate();
+
+
+    let from = location.state?.from?.pathname || "/";
+    if (token) {
+        navigate(from, { replace: true });
+    }
+
 
     const handleLogin = (data) => {
         console.log(data.email)
@@ -15,6 +27,8 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 toast.success('Login Successfully.')
+                setCreatedUserEmail(result.user.email);
+             
             }).catch(err => {
                 console.error(err)
                 toast.error('Login Unsuccess.')
@@ -25,12 +39,32 @@ const Login = () => {
             .then((result) => {
                 console.log(result.user)
                 toast.success('Google Login Successfully.')
+                saveUser(result.user.displayName,result.user.email )
+                setCreatedUserEmail(result.user.email);
             }).catch((error) => {
 
                 console.error(error);
                 toast.error('Google Login Unsuccess.')
             })
     }
+
+
+    const saveUser = (name, email) => {
+        const role ='buyer'
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+    }
+
 
 
     return (

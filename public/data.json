@@ -7,7 +7,9 @@
         "location": "Dhaka, Bangladesh",
         "originalPrice": "230",
         "resalePrice": "170",
-        "old": "3 years"
+        "old": "3 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
         "categoryName": "Academic Book",
@@ -17,7 +19,9 @@
         "location": "Khulna, Bangladesh",
         "originalPrice": "375",
         "resalePrice": "200",
-        "old": "1.5 years"
+        "old": "1.5 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
         "categoryName": "Academic Book",
@@ -27,7 +31,9 @@
         "location": "Jashore, Bangladesh",
         "originalPrice": "800",
         "resalePrice": "450",
-        "old": "2 years"
+        "old": "2 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
         "categoryName": "History Book",
@@ -37,7 +43,9 @@
         "location": "Jashore,Bangladesh",
         "originalPrice": "1000",
         "resalePrice": "400",
-        "old": "2 years"
+        "old": "2 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
         "categoryName": "History Book",
@@ -47,7 +55,9 @@
         "location": "Khulna,Bangladesh",
         "originalPrice": "700",
         "resalePrice": "300",
-        "old": "3 years"
+        "old": "3 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
         "categoryName": "History Book",
@@ -57,66 +67,107 @@
         "location": "Pabna, Bangladesh",
         "originalPrice": "700",
         "resalePrice": "300",
-        "old": "5 years"
+        "old": "5 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
-        "categoryName": "Motivational",
+        "categoryName": "Motivational Book",
         "productName": "Man’s Search for Meaning",
         "writer": "Victor E. Fankl",
         "image": "https://static-01.daraz.com.bd/p/d9fc8e54b8b29e5207bf2977cfca3ef6.png",
         "location": "Dhaka, Bangladesh",
         "originalPrice": "160",
         "resalePrice": "100",
-        "old": "2 years"
+        "old": "2 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
-        "categoryName": "Motivational",
+        "categoryName": "Motivational Book",
         "productName": " The Alchemist",
         "writer": "Paulo Coelho",
         "image": "https://static-01.daraz.com.bd/p/mdc/4b36eb7c880be867be4ea9bcfd61b397.png",
         "location": "Jashore,Bangladesh",
         "originalPrice": "100",
         "resalePrice": "60",
-        "old": "3 years"
+        "old": "3 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
-        "categoryName": "Humor",
+        "categoryName": "Horror Book",
         "productName": "s Everyone Hanging Out Without Me",
         "writer": "Mindy Kaling",
         "image": "https://m.media-amazon.com/images/I/51ZHLyX94RL.jpg",
         "location": "Sylhet,Bangladesh",
         "originalPrice": "490",
         "resalePrice": "300",
-        "old": "1 year"
+        "old": "1 year",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
-        "categoryName": "Humor",
+        "categoryName": "Horror Book",
         "productName": "Me Talk Pretty One Day",
         "writer": "David Sedaris",
         "image": "https://m.media-amazon.com/images/I/81Mg+BtxUzL.jpg",
         "location": "Dhaka, Bangladesh",
-        "originalPrice": "",
-        "resalePrice": "",
-        "old": ""
+        "originalPrice": "330",
+        "resalePrice": "150",
+        "old": "3 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
-        "categoryName": "Children’s Books",
+        "categoryName": "Children’s Book",
         "productName": "Diper Överlöde (Diary of a Wimpy Kid Series #17)",
         "writer": "Jeff Kinney",
         "image": "https://m.media-amazon.com/images/I/819bxLMj91L.jpg",
         "location": "Sylhet, Bangladesh",
         "originalPrice": "800",
         "resalePrice": "400",
-        "old": "2 years"
+        "old": "2 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
     },
     {
-        "categoryName": "Children’s Books",
+        "categoryName": "Children’s Book",
         "productName": "Harry Potter and the Philosopher's Stone Paperback",
         "writer": "J. K. Rowling",
         "image": "https://static-01.daraz.com.bd/p/88c8fe011aa2683f66e43efe9922dafc.jpg",
         "location": "Barisal, Bangladesh",
         "originalPrice": "",
         "resalePrice": "",
-        "old": "2 years"
+        "old": "2 years",
+        "postData": "5",
+        "seller": "Md Bipul Hossain"
+    }
+]
+
+[
+    {
+        "categoryName": "Children’s Book",
+        "image": "https://m.media-amazon.com/images/I/81Mg+BtxUzL.jpg"
+    },
+    {
+        "categoryName": "Horror Book",
+        "image": "https://m.media-amazon.com/images/I/81Mg+BtxUzL.jpg"
+    },
+    {
+        "categoryName": "Motivational Book",
+        "image": "https://static-01.daraz.com.bd/p/mdc/4b36eb7c880be867be4ea9bcfd61b397.png"
+    },
+    {
+        "categoryName": "History Book",
+        "image": "https://m.media-amazon.com/images/I/81ijRAC+c3L.jpg"
+    },
+    {
+        "categoryName": "Academic Book",
+        "image": "https://static-01.daraz.com.bd/p/3c266afd95597a98c884099f7dab76c3.jpg"
+    },
+    {
+        "categoryName": "Other Book",
+        "image": "https://m.media-amazon.com/images/I/41TPNFIgwGL._AC_SY780_.jpg"
     }
 ]
