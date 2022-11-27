@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -21,14 +22,12 @@ const Login = () => {
 
 
     const handleLogin = (data) => {
-        console.log(data.email)
 
         signIn(data.email, data.password)
             .then(result => {
-                console.log(result.user)
                 toast.success('Login Successfully.')
                 setCreatedUserEmail(result.user.email);
-             
+
             }).catch(err => {
                 console.error(err)
                 toast.error('Login Unsuccess.')
@@ -37,9 +36,8 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleSignUp()
             .then((result) => {
-                console.log(result.user)
                 toast.success('Google Login Successfully.')
-                saveUser(result.user.displayName,result.user.email )
+                saveUser(result.user.displayName, result.user.email)
                 setCreatedUserEmail(result.user.email);
             }).catch((error) => {
 
@@ -48,12 +46,11 @@ const Login = () => {
             })
     }
 
-
     const saveUser = (name, email) => {
-        const role ='buyer'
+        const role = 'buyer'
         const user = { name, email, role };
         fetch('http://localhost:5000/users', {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },

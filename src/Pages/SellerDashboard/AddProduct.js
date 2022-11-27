@@ -1,35 +1,53 @@
 import { format } from 'date-fns';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useCategoryData from '../../hooks/useCategoryData';
 
 const AddProduct = () => {
     const { user } = useContext(AuthContext);
-    console.log(user)
+    const [categoryData] = useCategoryData()
+    const imageHostKey = process.env.REACT_APP_imgbb_key;
+    const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm();
     const date = new Date()
     const dateFormat = format(date, 'PP')
-
+   
+    
+console.log(imageHostKey)
     const handleAddProduct = (data) => {
-        console.log(data)
+        console.log(imageHostKey)
+        const image = data.image[0];
+        console.log(image)
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res => res.json())
+        .then(imgData => {
+            if(imgData.success){
+                console.log(imgData.data.url);
 
-
-
-        const product = {
-            categoryName: data.category,
-            productName: data.name,
-            writer: data.writer,
-            image: data.image,
-            location: data.location,
-            postData: dateFormat,
-            resalePrice: data.sellprice,
-            originalPrice: data.originalprice,
-            seller: user.displayName,
-            sellerEmail: user.email,
-            old: data.bookage
-        }
-        console.log(product)
+                const product = {
+                    categoryName: data.category,
+                    productName: data.bookName,
+                    writer: data.writer,
+                    image: imgData.data.url,
+                    location: data.location,
+                    postData: dateFormat,
+                    resalePrice: data.sellprice,
+                    originalPrice: data.originalprice,
+                    seller: user.displayName,
+                    sellerEmail: user.email,
+                    old: data.bookage
+                }
+        
+            
         fetch('http://localhost:5000/addbook', {
             method: 'POST',
             headers: {
@@ -40,13 +58,14 @@ const AddProduct = () => {
             .then(data => {
                 console.log(data, "user add database")
                 toast.success('Book added successfully')
+                navigate('/seller_dashboard/myproducts')
             }).catch(e => console.error(e))
-
+            }})
+          
+      
+      
 
     }
-
-
-
 
 
     return (
@@ -55,56 +74,54 @@ const AddProduct = () => {
                 <h2 className='text-xl text-center'>Add Product</h2>
                 <form onSubmit={handleSubmit((handleAddProduct))}
                 >
-
-
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Category Name</span></label>
                         <select {...register("category", { required: "Category is Required" })} className="select select-bordered w-full">
-                            <option disabled selected>choice</option>
-                            <option selected>Other Book</option>
+                            {
+                                categoryData.map(data => <option >{data.categoryName}</option>
+                                )
+                            }
                         </select>
                         {errors.category && <p className='text-red-500'>{errors.category.message}</p>}
                     </div>
 
-
-
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Book Name</span></label>
-                        <input type="text" {...register("name", { required: "Name is Required" })} placeholder="Type your Name" className="input input-bordered w-full" />
-                        {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+                        <input type="text" {...register("bookName", { required: "Name is Required" })} placeholder="Type your Book Name" className="input input-bordered w-full" />
+                        {errors.bookName && <p className='text-red-500'>{errors.bookName.message}</p>}
                     </div>
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Writer</span></label>
-                        <input type="text" {...register("writer", { required: "writer is Required" })} placeholder="Type your password" className="input input-bordered w-full" />
+                        <input type="text" {...register("writer", { required: "writer is Required" })} placeholder="Writer Name" className="input input-bordered w-full" />
                         {errors.writer && <p className='text-red-500'>{errors.writer.message}</p>}
                     </div>
 
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Book Image</span></label>
-                        <input type="text" {...register("image", { required: "Image is Required" })} placeholder="Image Url" className="input input-bordered w-full" />
+                        <input type="file" {...register("image", { required: "Image is Required" })} placeholder="Image Url" className="input input-bordered w-full" />
                         {errors.image && <p className='text-red-500'>{errors.image.message}</p>}
                     </div>
 
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Book Age</span></label>
-                        <input type="text" {...register("bookage", { required: "Book Age is Required" })} placeholder="Type your password" className="input input-bordered w-full" />
+                        <input type="text" {...register("bookage", { required: "Book Age is Required" })} placeholder="Time Of Used" className="input input-bordered w-full" />
                         {errors.bookage && <p className='text-red-500'>{errors.bookage.message}</p>}
                     </div>
 
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Original Price</span></label>
-                        <input type="text" {...register("originalprice", { required: "Original is Required" })} placeholder="Type your password" className="input input-bordered w-full" />
+                        <input type="text" {...register("originalprice", { required: "Original Price is Required" })} placeholder="Type Original Price" className="input input-bordered w-full" />
                         {errors.originalprice && <p className='text-red-500'>{errors.originalprice.message}</p>}
                     </div>
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Selling Price</span></label>
-                        <input type="text" {...register("sellprice", { required: "password is Required" })} placeholder="Type your password" className="input input-bordered w-full" />
+                        <input type="text" {...register("sellprice", { required: "Selling Price is Required" })} placeholder="Selling Price" className="input input-bordered w-full" />
                         {errors.sellprice && <p className='text-red-500'>{errors.sellprice.message}</p>}
                     </div>
 
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Location</span></label>
-                        <input type="text" {...register("location", { required: "Location is Required" })} placeholder="Type your password" className="input input-bordered w-full" />
+                        <input type="text" {...register("location", { required: "Location is Required" })} placeholder="Your Location" className="input input-bordered w-full" />
                         {errors.location && <p className='text-red-500'>{errors.location.message}</p>}
                     </div>
 

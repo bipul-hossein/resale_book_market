@@ -68,9 +68,8 @@ const Register = () => {
                     <div className="form-control w-full">
                         <label className="label"><span className="label-text">Role</span></label>
                         <select {...register("role", { required: "Role Required" })} className="select select-bordered w-full">
-                            <option disabled selected>choice</option>
                             <option selected>buyer</option>
-                            <option selected>seller</option>
+                            <option >seller</option>
                         </select>
                         {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                     </div>

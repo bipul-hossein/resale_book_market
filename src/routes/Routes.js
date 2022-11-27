@@ -8,6 +8,7 @@ import AllSeller from "../Pages/AdminDashboard/AllSeller";
 import Blogs from "../Pages/Blogs/Blogs";
 import Home from "../Pages/Home/Home";
 import Category from "../Pages/Home/HomeContainer/Category";
+import MyOrders from "../Pages/Home/HomeContainer/MyOrders";
 import Login from "../Pages/LogIn/Login";
 import Register from "../Pages/Register/Register";
 import AddProduct from "../Pages/SellerDashboard/AddProduct";
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
+            },
+            {
+                path: '/myorders',
+                element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
             },
             {
                 path: '/categories/:id',

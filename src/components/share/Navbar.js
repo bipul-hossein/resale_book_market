@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -5,27 +6,33 @@ import useAdmin from '../../hooks/useAdmin';
 import useSeller from '../../hooks/useSeller';
 
 const Navbar = () => {
-
     const { logOut, user } = useContext(AuthContext)
+    const [isAdmin] = useAdmin(user?.email)
+    const [isSeller] = useSeller(user?.email)
+    
     const navigate = useNavigate()
     const handleSignOut = () => {
         logOut()
             .then(() => {
-                // Sign-out successful.
+                // Sign-out successful.       
+               
                 navigate('/')
-            }).catch((error) => {
-                navigate('/')
+                window.location.reload()
+            }).catch((error) => {          
+              window.location.reload()
                 console.error(error)
             });
     }
 
-    const [isAdmin] = useAdmin(user?.email)
-    const [isSeller] = useSeller(user?.email)
+  
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
-        {isAdmin && 
+        <li><Link to="/myorders">My Orders</Link></li>
+
+        {isAdmin ?
             <li><Link to="/admin_dashboard/">Admin Dashboard</Link></li>
+            :<></>
         }
         {isSeller && 
             <li><Link to="/Seller_dashboard/">Seller Dashboard</Link></li>
@@ -39,7 +46,6 @@ const Navbar = () => {
         }
         </Link></li>
       
-
     </>
 
     const websiteName = 'Book Market'

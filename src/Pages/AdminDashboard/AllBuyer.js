@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AllBuyer = () => {
 
 
     
 
-    const { data: buyer = [] } = useQuery({
+    const { data: buyer = [],refetch } = useQuery({
         queryKey: ['buyers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/buyers');
@@ -18,7 +19,27 @@ const AllBuyer = () => {
 
     console.log(buyer)
 
+const handleDeleteBuyer=(buyer)=>{
+    const agree = window.confirm(`you want to delete ${buyer.name}`)
+    if(agree){
+        fetch(`http://localhost:5000/user/${buyer._id}`, {
+            method: 'DELETE',
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if (data.deletedCount > 0) {
+                    toast.success('User delete successfully')
+                    refetch()
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
 
+    }
+
+}
 
 
     return (
@@ -40,7 +61,7 @@ const AllBuyer = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+                                <td><button onClick={()=>handleDeleteBuyer(user)} className='btn btn-xs btn-danger'>Delete</button></td>
                             </tr>)
                         }
 
