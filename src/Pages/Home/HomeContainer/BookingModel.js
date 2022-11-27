@@ -4,11 +4,11 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const BookingModel = ({ item ,setItem}) => {
-
     const { user } = useContext(AuthContext)
+    
     const date = new Date()
     const dateFormat = format(date, 'PP')
-    console.log(dateFormat)
+console.log(item)
     const handleBooking = event => {
         event.preventDefault()
         const form = event.target;
@@ -19,9 +19,10 @@ const BookingModel = ({ item ,setItem}) => {
 
         const booking = {
             userName,
+            image:item.image,
             email,
             phone,
-            bookName: item.categoryName,
+            bookName: item.productName,
             dateFormat,
             price: item.resalePrice,
         }

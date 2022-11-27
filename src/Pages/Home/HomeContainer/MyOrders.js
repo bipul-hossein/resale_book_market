@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const MyOrders = () => {
-    const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
 
     const { data: usersOrders = [] } = useQuery({
@@ -15,39 +16,53 @@ const MyOrders = () => {
         }
     });
 
-console.log(usersOrders)
+    console.log(usersOrders)
     return (
         <div>
-        <h2 className="text-3xl">My Order</h2>
-        <div className="overflow-x-auto">
-            <table className="table w-full">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Product</th>
-                        <th>Order Date</th>
-                        <th>Price</th>
-                        <th>payment</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        usersOrders.map((book, i) => <tr key={book._id}>
-                            <th>{i + 1}</th>
-                            <td>{book.bookName}</td>
-                            <td>{book?.dateFormat}</td>
-                            <td>{book.price}</td>
-                            
-                            <td>pay</td>
-                            <td><button className='btn btn-xs btn-danger'>Delete</button></td>
-                        </tr>)
-                    }
+            <h2 className="text-3xl">My Order</h2>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Order Date</th>
+                            <th>Price</th>
+                            <th>Status</th>
 
-                </tbody>
-            </table>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            usersOrders.map((book, i) => <tr key={book._id}>
+                                <th>{i + 1}</th>
+                                <td>
+                                    <div className="avatar">
+                                        <div className="w-20 rounded">
+                                            <img src={book.image} alt="" />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{book.bookName}</td>
+                                <td>{book?.dateFormat}</td>
+                                <td>{book.price}</td>
+
+                                <td>
+                                    {book.price && !book.paid && <Link to={`/order/payment/${book._id}`}><button className='btn btn-secondary btn-sm'> pay</button> </Link>
+                                    }
+                                    {
+                                        book.price && book.paid && <span className='text-green-500'>Paid</span>
+                                    }
+                                </td>
+
+                            </tr>)
+                        }
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
     );
 };

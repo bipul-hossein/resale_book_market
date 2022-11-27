@@ -15,12 +15,10 @@ const AddProduct = () => {
     const date = new Date()
     const dateFormat = format(date, 'PP')
    
-    
-console.log(imageHostKey)
+
+
     const handleAddProduct = (data) => {
-        console.log(imageHostKey)
         const image = data.image[0];
-        console.log(image)
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
@@ -31,8 +29,7 @@ console.log(imageHostKey)
         .then(res => res.json())
         .then(imgData => {
             if(imgData.success){
-                console.log(imgData.data.url);
-
+            
                 const product = {
                     categoryName: data.category,
                     productName: data.bookName,

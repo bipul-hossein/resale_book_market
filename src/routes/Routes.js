@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import DisplayError from "../components/share/DisplayError";
 import AdminDashboardLayout from "../Layout/AdminDashboardLayout";
 import Main from "../Layout/Main";
 import SellerDashboardLayout from "../Layout/SellerDashboardLayout";
@@ -9,6 +10,7 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Home from "../Pages/Home/Home";
 import Category from "../Pages/Home/HomeContainer/Category";
 import MyOrders from "../Pages/Home/HomeContainer/MyOrders";
+import Payment from "../Pages/Home/Payment/Payment";
 import Login from "../Pages/LogIn/Login";
 import Register from "../Pages/Register/Register";
 import AddProduct from "../Pages/SellerDashboard/AddProduct";
@@ -21,6 +23,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<DisplayError></DisplayError>,
         children: [
             {
                 path: '/',
@@ -39,6 +42,11 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><Blogs></Blogs></PrivateRoute>
             },
             {
+                path: '/order/payment/:id',
+                element: <Payment></Payment>,
+                loader:async ({params})=> fetch(`http://localhost:5000/booking/${params.id}`)
+            },
+            {
                 path: '/myorders',
                 element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
             },
@@ -52,6 +60,7 @@ const router = createBrowserRouter([
     {
         path:'/admin_dashboard',
         element:<AdminDashboardLayout/>,
+        errorElement:<DisplayError></DisplayError>,
         children:[
             {
                 path:'/admin_dashboard/allbuyer',
@@ -66,6 +75,7 @@ const router = createBrowserRouter([
     {
         path:'/seller_dashboard',
         element:<PrivateRoute><SellerDashboardLayout/></PrivateRoute>,
+        errorElement:<DisplayError></DisplayError>,
         children:[
             {
                 path:'/seller_dashboard/addproduct',

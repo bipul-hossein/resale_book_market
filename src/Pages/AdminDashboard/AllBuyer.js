@@ -17,8 +17,6 @@ const AllBuyer = () => {
     });
 
 
-    console.log(buyer)
-
 const handleDeleteBuyer=(buyer)=>{
     const agree = window.confirm(`you want to delete ${buyer.name}`)
     if(agree){

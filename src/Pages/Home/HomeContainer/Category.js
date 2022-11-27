@@ -6,7 +6,6 @@ import BookingModel from './BookingModel';
 
 const Category = () => {
     const categoryBook = useLoaderData()
-    console.log(categoryBook)
     const [item, setItem] = useState({})
     const { user } = useContext(AuthContext)
 

@@ -4,7 +4,6 @@ const Categories = ({ categories}) => {
 
     const navigate = useNavigate()
     const handleCard =(props) =>{
-        console.log(props)
         navigate(`/categories/${props}`)   
     }
     return (

@@ -19,10 +19,9 @@ const MyProducts = () => {
     
 
     const handleDeleteBook=(book)=>{
-        console.log(book._id)
         const agree = window.confirm(`you want to delete${book.productName}`)
+        
         if(agree){
-            console.log(book._id)
 
             fetch(`http://localhost:5000/book/${book._id}`, {
                 method: 'DELETE',
