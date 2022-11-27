@@ -10,7 +10,7 @@ const MyProducts = () => {
     const { data: mybook = [],refetch } = useQuery({
         queryKey: ['sellerbook'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/sellerbook/${user.email}`);
+            const res = await fetch(`https://server-side-assignment12.vercel.app/sellerbook/${user.email}`);
             const data = await res.json();
             return data;
         }
@@ -20,10 +20,10 @@ const MyProducts = () => {
 
     const handleDeleteBook=(book)=>{
         const agree = window.confirm(`you want to delete${book.productName}`)
-        
+
         if(agree){
 
-            fetch(`http://localhost:5000/book/${book._id}`, {
+            fetch(`https://server-side-assignment12.vercel.app/book/${book._id}`, {
                 method: 'DELETE',
             })
                 .then(response => response.json())

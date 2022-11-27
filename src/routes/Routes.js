@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path: '/order/payment/:id',
                 element: <Payment></Payment>,
-                loader:async ({params})=> fetch(`http://localhost:5000/booking/${params.id}`)
+                loader:async ({params})=> fetch(`https://server-side-assignment12.vercel.app/booking/${params.id}`)
             },
             {
                 path: '/myorders',
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             {
                 path: '/categories/:id',
                 element:<Category></Category>,
-                loader:async ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader:async ({ params }) => fetch(`https://server-side-assignment12.vercel.app/categories/${params.id}`)
             }
         ]
     },

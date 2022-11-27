@@ -2,15 +2,16 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext)
-
+useTitle('Order Section')
 
     const { data: usersOrders = [] } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/user/orders/${user.email}`);
+            const res = await fetch(`https://server-side-assignment12.vercel.app/user/orders/${user.email}`);
             const data = await res.json();
             return data;
         }

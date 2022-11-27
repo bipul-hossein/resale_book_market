@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useCategoryData from '../../hooks/useCategoryData';
+import useTitle from '../../hooks/useTitle';
 import Categories from './HomeContainer/Categories';
 import Hero from './HomeContainer/Hero';
 
 const Home = () => {
-
+useTitle("Home")
 const [categoryData]= useCategoryData()
 
     return (
