@@ -50,7 +50,7 @@ const Login = () => {
     const saveUser = (name, email) => {
         const role = 'buyer'
         const user = { name, email, role };
-        fetch('http://localhost:5000/users', {
+        fetch('https://server-side-assignment12.vercel.app/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

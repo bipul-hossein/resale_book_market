@@ -11,7 +11,7 @@ useTitle('Order Section')
     const { data: usersOrders = [] } = useQuery({
         queryKey: ['user'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/user/orders/${user.email}`);
+            const res = await fetch(`https://server-side-assignment12.vercel.app/user/orders/${user.email}`);
             const data = await res.json();
             return data;
         }
