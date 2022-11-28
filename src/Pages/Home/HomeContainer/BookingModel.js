@@ -29,7 +29,7 @@ console.log(item)
         console.log(booking)
 
 
-        fetch('https://server-side-assignment12.vercel.app/bookings', {
+        fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

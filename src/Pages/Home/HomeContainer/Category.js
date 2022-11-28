@@ -18,16 +18,16 @@ const Category = () => {
         <>
             <div className='flex gap-4'>
                 {
-                    categoryBook.map((data, i) => <div
+                    categoryBook?.map((data, i) => <div
                         key={i}
                         className="card card-compact w-96 bg-base-100 shadow-xl">
-                        <figure><img src={data.image} alt="Shoes" /></figure>
+                        <figure><img src={data?.image} alt="Shoes" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">{data.productName}. writer: {data.writer}</h2>
-                            <p>Seller:{data.seller}</p>
-                            <p>Seller:{data.originalPrice}</p>
-                            <p>Seller:{data.resalePrice}</p>
-                            <p>Seller:{data.location}</p>
+                            <h2 className="card-title">{data.productName}. writer: {data?.writer}</h2>
+                            <p>Seller:{data?.seller}</p>
+                            <p>Seller:{data?.originalPrice}</p>
+                            <p>Seller:{data?.resalePrice}</p>
+                            <p>Seller:{data?.location}</p>
                             <div className="w-full">
                                 {
                                     user ? <label onClick={() => setItem(data)} htmlFor="booking_modal"

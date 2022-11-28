@@ -5,14 +5,11 @@ import { useLoaderData } from 'react-router-dom';
 import CheckOutFrom from './CheckOutFrom';
 
 const stripePromise = loadStripe(process.env.REACT_APP_strip_key);
-console.log(stripePromise)
 
 const Payment = () => {
     const data =useLoaderData()
 
-console.log(data);
    
-
     return (
         <div className='w-2/3 mx-auto'>
             <h3 className="text-2xl">Payment for {data.bookName}</h3>

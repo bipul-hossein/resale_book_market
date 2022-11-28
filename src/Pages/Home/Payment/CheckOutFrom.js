@@ -15,7 +15,7 @@ const CheckOutFrom = ({ data }) => {
     console.log(clientSecret)
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("https://server-side-assignment12.vercel.app/create-payment-intent", {
+        fetch("http://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -72,19 +72,18 @@ const CheckOutFrom = ({ data }) => {
             setCardError(confirmError.message);
             return;
         }
-        console.log(paymentIntent)
+
 
         if (paymentIntent.status === "succeeded") {
             console.log('card info', card);
-          
-            // store payment info in the database
+            
             const payment = {
                 price,
                 transactionId: paymentIntent.id,
                 email,
                 bookingId: _id
             }
-            fetch('https://server-side-assignment12.vercel.app/payments', {
+            fetch('http://localhost:5000/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -102,13 +101,7 @@ const CheckOutFrom = ({ data }) => {
                 })
         }
         setProcessing(false);
-
-
     }
-
-
-
-
 
     return (
         <>

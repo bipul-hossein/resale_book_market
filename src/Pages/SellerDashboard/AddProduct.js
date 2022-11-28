@@ -45,7 +45,7 @@ const AddProduct = () => {
                 }
         
             
-        fetch('https://server-side-assignment12.vercel.app/addbook', {
+        fetch('http://localhost:5000/addbook', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

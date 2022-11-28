@@ -9,11 +9,11 @@ const Categories = ({ categories}) => {
     return (
         <div className='grid grid-cols-6 gap-4 '>
             {
-                categories.map(data =>
-                    <div onClick={()=> handleCard(data.categoryName)} className="card w-auto bg-base-100 shadow-xl image-full cursor-pointer">
-                        <figure><img src={data.image} alt="Shoes" /></figure>
+                categories?.map((data,i )=>
+                    <div key={i} onClick={()=> handleCard(data?.categoryName)} className="card w-auto bg-base-100 shadow-xl image-full cursor-pointer">
+                        <figure><img src={data?.image} alt="Shoes" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">{data.categoryName}</h2>
+                            <h2 className="card-title">{data?.categoryName}</h2>
                         </div>
                     </div>)
             }
