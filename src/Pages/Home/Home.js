@@ -1,13 +1,11 @@
 import React from 'react';
 import useCategoryData from '../../hooks/useCategoryData';
-import useTitle from '../../hooks/useTitle';
 import AdvertisedItems from './AdvertisedItems';
 import CusFeed from './CusFeed';
 import Categories from './HomeContainer/Categories';
 import Hero from './HomeContainer/Hero';
 
 const Home = () => {
-useTitle("Home")
 const [categoryData]= useCategoryData()
 // console.log(categoryData)
     return (
