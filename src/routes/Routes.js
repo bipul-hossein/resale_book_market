@@ -63,6 +63,10 @@ const router = createBrowserRouter([
         errorElement:<DisplayError></DisplayError>,
         children:[
             {
+                path:'/admin_dashboard',
+                element:<AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
+            },
+            {
                 path:'/admin_dashboard/allbuyer',
                 element:<AdminRoute><AllBuyer></AllBuyer></AdminRoute>
             },
@@ -77,6 +81,10 @@ const router = createBrowserRouter([
         element:<PrivateRoute><SellerDashboardLayout/></PrivateRoute>,
         errorElement:<DisplayError></DisplayError>,
         children:[
+            {
+                path:'/seller_dashboard',
+                element:<SellerRoute><AddProduct></AddProduct></SellerRoute>
+            },
             {
                 path:'/seller_dashboard/addproduct',
                 element:<SellerRoute><AddProduct></AddProduct></SellerRoute>

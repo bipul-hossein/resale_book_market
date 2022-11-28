@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Categories = ({ categories}) => {
-// console.log(categories);
+console.log(categories);
     const navigate = useNavigate()
     const handleCard =(props) =>{
         navigate(`/categories/${props}`)   

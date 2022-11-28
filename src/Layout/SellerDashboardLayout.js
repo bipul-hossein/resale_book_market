@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import Footar from '../components/share/Footar';
 import Navbar from '../components/share/Navbar';
 import { AuthContext } from '../contexts/AuthProvider';
 import useSeller from '../hooks/useSeller';
@@ -31,6 +32,7 @@ const SellerDashboardLayout = () => {
 
                 </div>
             </div>
+            <Footar></Footar>
         </div>
     );
 };

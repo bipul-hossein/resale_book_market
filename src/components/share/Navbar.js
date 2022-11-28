@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -30,7 +30,11 @@ const Navbar = () => {
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
+        {!isAdmin && !isSeller && user ?
         <li><Link to="/myorders">My Orders</Link></li>
+        :<></>
+        
+        }
 
         {isAdmin ?
             <li><Link to="/admin_dashboard/">Admin Dashboard</Link></li>

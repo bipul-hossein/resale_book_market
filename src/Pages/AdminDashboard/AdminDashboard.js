@@ -1,11 +1,10 @@
 import React from 'react';
-import AllBuyer from './AllBuyer';
+
 
 const AdminDashboard = () => {
     return (
         <div>
-            admin_dashboard
-            <AllBuyer></AllBuyer>
+           <h2 className='text-3xl my-4'> Admin_dashboard</h2>
         </div>
     );
 };
