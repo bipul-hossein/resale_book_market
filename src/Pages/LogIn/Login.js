@@ -27,7 +27,7 @@ const Login = () => {
             .then(result => {
                 toast.success('Login Successfully.')
                 setCreatedUserEmail(result.user.email);
-                console.log(result.user.email);
+                // console.log(result.user.email);
 
             }).catch(err => {
                 console.error(err)
@@ -59,7 +59,7 @@ const Login = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
             })
     }
 

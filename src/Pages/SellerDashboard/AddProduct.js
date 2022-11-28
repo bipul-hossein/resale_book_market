@@ -53,7 +53,7 @@ const AddProduct = () => {
             body: JSON.stringify(product)
         }).then(res => res.json())
             .then(data => {
-                console.log(data, "user add database")
+                // console.log(data, "user add database")
                 toast.success('Book added successfully')
                 navigate('/seller_dashboard/myproducts')
             }).catch(e => console.error(e))

@@ -28,7 +28,7 @@ const MyProducts = () => {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Success:', data);
+                    // console.log('Success:', data);
                     if (data.deletedCount > 0) {
                         toast.success('Book delete successfully')
                         refetch()

@@ -6,20 +6,22 @@ import useAdmin from '../../hooks/useAdmin';
 import useSeller from '../../hooks/useSeller';
 
 const Navbar = () => {
-    const { logOut, user } = useContext(AuthContext)
+    const { logOut, user,setUser } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
     const [isSeller] = useSeller(user?.email)
-    
+    // console.log(user?.email);
+    // console.log(isSeller)
     const navigate = useNavigate()
     const handleSignOut = () => {
         logOut()
             .then(() => {
+                setUser(null)
                 // Sign-out successful.       
-               
+               localStorage.removeItem('accessToken')
                 navigate('/')
-                window.location.reload()
+               // window.location.reload()
             }).catch((error) => {          
-              window.location.reload()
+             // window.location.reload()
                 console.error(error)
             });
     }

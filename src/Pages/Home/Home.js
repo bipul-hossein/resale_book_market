@@ -8,7 +8,7 @@ import Hero from './HomeContainer/Hero';
 const Home = () => {
 useTitle("Home")
 const [categoryData]= useCategoryData()
-console.log(categoryData)
+// console.log(categoryData)
     return (
         <div className='w-11/12 mx-auto'>
             <Hero></Hero>

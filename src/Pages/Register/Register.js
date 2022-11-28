@@ -17,11 +17,11 @@ const Register = () => {
     }
 
     const handleSignUp = (data) => {
-        console.log(data.role)
+        // console.log(data.role)
 
         createUser(data.email, data.password)
             .then(result => {
-                console.log(result.user)
+                // console.log(result.user)
 
                 const userUpdateInfo = {
                     displayName: data.name
@@ -53,7 +53,7 @@ const Register = () => {
             body: JSON.stringify(user)
         }).then(res => res.json())
             .then(data => {
-                console.log(data, "user add database")
+                // console.log(data, "user add database")
                 setCreatedUserEmail(email);
             }).catch(e => console.error(e))
     }

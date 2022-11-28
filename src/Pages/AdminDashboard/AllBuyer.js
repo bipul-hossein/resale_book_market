@@ -25,7 +25,7 @@ const handleDeleteBuyer=(buyer)=>{
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                // console.log('Success:', data);
                 if (data.deletedCount > 0) {
                     toast.success('User delete successfully')
                     refetch()

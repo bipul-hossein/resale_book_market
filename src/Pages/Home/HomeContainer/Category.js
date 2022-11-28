@@ -21,13 +21,13 @@ const Category = () => {
                     categoryBook?.map((data, i) => <div
                         key={i}
                         className="card card-compact w-96 bg-base-100 shadow-xl">
-                        <figure><img src={data?.image} alt="Shoes" /></figure>
+                        <figure><img className='max-w-md max-h-48' src={data?.image} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{data.productName}. writer: {data?.writer}</h2>
-                            <p>Seller:{data?.seller}</p>
-                            <p>Seller:{data?.originalPrice}</p>
-                            <p>Seller:{data?.resalePrice}</p>
-                            <p>Seller:{data?.location}</p>
+                            <p>Seller Name:{data?.seller}</p>
+                            <p>Original Price:{data?.originalPrice}</p>
+                            <p>Selling Price:{data?.resalePrice}</p>
+                            <p>Seller Location:{data?.location}</p>
                             <div className="w-full">
                                 {
                                     user ? <label onClick={() => setItem(data)} htmlFor="booking_modal"

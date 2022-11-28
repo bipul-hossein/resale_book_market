@@ -17,7 +17,7 @@ useTitle('Order Section')
         }
     });
 
-    console.log(usersOrders)
+    // console.log(usersOrders)
     return (
         <div>
             <h2 className="text-3xl">My Order</h2>
@@ -36,18 +36,18 @@ useTitle('Order Section')
                     </thead>
                     <tbody>
                         {
-                            usersOrders.map((book, i) => <tr key={book._id}>
+                            usersOrders?.map((book, i) => <tr key={book._id}>
                                 <th>{i + 1}</th>
                                 <td>
                                     <div className="avatar">
                                         <div className="w-20 rounded">
-                                            <img src={book.image} alt="" />
+                                            <img src={book?.image} alt="" />
                                         </div>
                                     </div>
                                 </td>
-                                <td>{book.bookName}</td>
+                                <td>{book?.bookName}</td>
                                 <td>{book?.dateFormat}</td>
-                                <td>{book.price}</td>
+                                <td>{book?.price}</td>
 
                                 <td>
                                     {book.price && !book.paid && <Link to={`/order/payment/${book._id}`}><button className='btn btn-secondary btn-sm'> pay</button> </Link>

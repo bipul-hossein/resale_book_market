@@ -11,8 +11,8 @@ const CheckOutFrom = ({ data }) => {
     const elements = useElements();
     const { _id, price, email, userName } = data
 
-    console.log(data)
-    console.log(clientSecret)
+    // console.log(data)
+    // console.log(clientSecret)
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
         fetch("https://server-side-assignment12.vercel.app/create-payment-intent", {
@@ -46,7 +46,7 @@ const CheckOutFrom = ({ data }) => {
         });
 
         if (error) {
-            console.log(error);
+            // console.log(error);
             setCardError(error.message);
         }
         else {
@@ -75,7 +75,7 @@ const CheckOutFrom = ({ data }) => {
 
 
         if (paymentIntent.status === "succeeded") {
-            console.log('card info', card);
+            // console.log('card info', card);
             
             const payment = {
                 price,
@@ -93,7 +93,7 @@ const CheckOutFrom = ({ data }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.insertedId) {
                         setSuccess('Congrats! your payment completed');
                         setTransactionId(paymentIntent.id);

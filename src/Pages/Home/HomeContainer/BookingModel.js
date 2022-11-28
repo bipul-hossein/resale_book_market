@@ -8,13 +8,14 @@ const BookingModel = ({ item ,setItem}) => {
     
     const date = new Date()
     const dateFormat = format(date, 'PP')
-console.log(item)
+// console.log(item)
     const handleBooking = event => {
         event.preventDefault()
         const form = event.target;
         const userName = form.name.value;
         const email = form.email.value;
         const phone = form.phone.value;
+        const location = form.location.value;
 
 
         const booking = {
@@ -25,8 +26,9 @@ console.log(item)
             bookName: item.productName,
             dateFormat,
             price: item.resalePrice,
+            location
         }
-        console.log(booking)
+        // console.log(booking)
 
 
         fetch('https://server-side-assignment12.vercel.app/bookings', {
@@ -38,7 +40,7 @@ console.log(item)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if(data.acknowledged){
                     toast.success("booking confirmed")
                     setItem(null)
@@ -62,6 +64,7 @@ console.log(item)
                         <input name='name' type="text" disabled defaultValue={user?.displayName} placeholder="Your Name" className="input input-bordered w-full " />
                         <input name='email' type="text" disabled defaultValue={user?.email} placeholder="Your Email" className="input input-bordered w-full " />
                         <input name='phone' type="text" placeholder="Your Phone Number" required className="input input-bordered w-full " />
+                        <input name='location' type="text" placeholder="Your Location" required className="input input-bordered w-full " />
                         <input type="submit" className="btn btn-accent w-full " />
                     </form>
                 </div>

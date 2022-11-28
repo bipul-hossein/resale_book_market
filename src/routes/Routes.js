@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/categories/:id',
-                element:<Category></Category>,
+                element:<PrivateRoute><Category></Category></PrivateRoute>,
                 loader:async ({ params }) => fetch(`https://server-side-assignment12.vercel.app/categories/${params.id}`)
             }
         ]

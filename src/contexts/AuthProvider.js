@@ -37,12 +37,13 @@ const AuthProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        return () =>onAuthStateChanged(auth,
-            loggedUser => {
-                console.log("Observing user")
-                setUser(loggedUser)
-                setLoading(false);
-            })
+        const unsubscribe = onAuthStateChanged(auth, currentUser =>{
+            // console.log('user observing');
+            setUser(currentUser);
+            setLoading(false);
+        });
+
+        return () => unsubscribe();
     }, [])
 
     const info = {
@@ -52,7 +53,8 @@ const AuthProvider = ({ children }) => {
         googleSignUp,
         logOut,
         user,
-        loading
+        loading,
+        setUser
     }
     return (
         <AuthContext.Provider value={info}>
