@@ -15,7 +15,7 @@ const MyProducts = () => {
             return data;
         }
     });
-console.log(mybook)
+
     const handleDeleteBook = (book) => {
         const agree = window.confirm(`you want to delete${book.productName}`)
 
