@@ -62,7 +62,7 @@ const Category = () => {
                                                 className="btn btn-primary w-full text-white"
                                             >Book Now</label> : <label disabled onClick={hanleBookToast}
                                                 className="btn btn-secondary w-full text-white"
-                                            >No Available</label>
+                                            >Book Now</label>
                                         }
 
                                     </div>
