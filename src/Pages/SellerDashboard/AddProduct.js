@@ -58,6 +58,7 @@ const AddProduct = () => {
                 navigate('/seller_dashboard/myproducts')
             }).catch(e => console.error(e))
             }})
+            
     }
 
 

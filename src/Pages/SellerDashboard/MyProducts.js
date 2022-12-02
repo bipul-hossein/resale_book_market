@@ -15,10 +15,11 @@ const MyProducts = () => {
             return data;
         }
     });
+console.log(mybook)
     const handleDeleteBook = (book) => {
         const agree = window.confirm(`you want to delete${book.productName}`)
 
-        console.log(book)
+        
         if (agree) {
 
             fetch(`https://server-side-assignment12.vercel.app/book/${book._id}`, {
@@ -75,7 +76,7 @@ const MyProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            mybook?.map((book, i) => <tr key={book}>
+                            mybook?.map((book, i) => <tr key={book._id}>
                                 <th>{i + 1}</th>
                                 <td>{book?.productName}</td>
                                 <td>{book?.sellerEmail}</td>
