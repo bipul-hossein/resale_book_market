@@ -17,9 +17,9 @@ useTitle('Order Section')
         }
     });
 
-    // console.log(usersOrders)
+
     return (
-        <div>
+        <div className='w-11/12 mx-auto'>
             <h2 className="text-3xl">My Order</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">

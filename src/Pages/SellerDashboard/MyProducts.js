@@ -7,7 +7,7 @@ const MyProducts = () => {
     const { user } = useContext(AuthContext);
 
 
-    const { data: mybook = [],refetch } = useQuery({
+    const { data: mybook = [], refetch } = useQuery({
         queryKey: ['sellerbook'],
         queryFn: async () => {
             const res = await fetch(`https://server-side-assignment12.vercel.app/sellerbook/${user.email}`);
@@ -16,12 +16,10 @@ const MyProducts = () => {
         }
     });
 
-    
-
-    const handleDeleteBook=(book)=>{
+    const handleDeleteBook = (book) => {
         const agree = window.confirm(`you want to delete${book.productName}`)
 
-        if(agree){
+        if (agree) {
 
             fetch(`https://server-side-assignment12.vercel.app/book/${book._id}`, {
                 method: 'DELETE',
@@ -39,14 +37,25 @@ const MyProducts = () => {
                 });
         }
 
-        
+
     }
+    const handleAdvertised = (id) => {
+        const advertisedId = {
+            id
+        }
 
+        fetch(`https://server-side-assignment12.vercel.app/advertisedproduct`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(advertisedId)
+        }).then(res => res.json())
+            .then(data => {
+                toast.success('Advertised added successfully')
+            }).catch(e => console.error(e))
 
-
-
-
-    
+    }
 
     return (
         <div>
@@ -66,14 +75,28 @@ const MyProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            mybook.map((book, i) => <tr key={book._id}>
+                            mybook?.map((book, i) => <tr key={book}>
                                 <th>{i + 1}</th>
-                                <td>{book.productName}</td>
+                                <td>{book?.productName}</td>
                                 <td>{book?.sellerEmail}</td>
-                                <td>{book.resalePrice}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td><button onClick={()=>handleDeleteBook(book)} className='btn btn-xs btn-danger'>Delete</button></td>
+                                <td>{book?.resalePrice}</td>
+                                <td>
+                                    {
+                                        !book?.paid && <button onClick={() => handleAdvertised(book._id)} className='btn btn-xs btn-danger'>Advertise</button>
+                                    }
+                                    {
+                                        book?.paid && <button disabled className='btn btn-xs btn-danger'>Advertise</button>
+                                    }
+                                </td>
+                                <td>
+
+                                    {!book?.paid && <button className='btn btn-accent btn-sm'> available</button>
+                                    }
+                                    {
+                                        book?.paid && <span className='text-green-500'>sold</span>
+                                    }
+                                </td>
+                                <td><button onClick={() => handleDeleteBook(book._id)} className='btn btn-xs btn-danger'>Delete</button></td>
                             </tr>)
                         }
 

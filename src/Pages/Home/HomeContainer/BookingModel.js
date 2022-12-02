@@ -8,7 +8,7 @@ const BookingModel = ({ item ,setItem}) => {
     
     const date = new Date()
     const dateFormat = format(date, 'PP')
-// console.log(item)
+console.log(item)
     const handleBooking = event => {
         event.preventDefault()
         const form = event.target;
@@ -17,10 +17,10 @@ const BookingModel = ({ item ,setItem}) => {
         const phone = form.phone.value;
         const location = form.location.value;
 
-
         const booking = {
             userName,
             image:item.image,
+            categoryBookId:item._id,
             email,
             phone,
             bookName: item.productName,
@@ -28,8 +28,6 @@ const BookingModel = ({ item ,setItem}) => {
             price: item.resalePrice,
             location
         }
-        // console.log(booking)
-
 
         fetch('https://server-side-assignment12.vercel.app/bookings', {
             method: 'POST',
@@ -49,10 +47,11 @@ const BookingModel = ({ item ,setItem}) => {
             })
 
 
+
     }
     return (
         <>
-            {/* Put this part before </body> tag */}
+          
             <input type="checkbox" id="booking_modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">

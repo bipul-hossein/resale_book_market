@@ -9,9 +9,9 @@ const CheckOutFrom = ({ data }) => {
     const [processing, setProcessing] = useState(false);
     const stripe = useStripe();
     const elements = useElements();
-    const { _id, price, email, userName } = data
+    const { _id, price, email, userName,categoryBookId } = data
 
-    // console.log(data)
+    console.log(data)
     // console.log(clientSecret)
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
@@ -73,15 +73,15 @@ const CheckOutFrom = ({ data }) => {
             return;
         }
 
-
         if (paymentIntent.status === "succeeded") {
             // console.log('card info', card);
-            
+
             const payment = {
                 price,
                 transactionId: paymentIntent.id,
                 email,
-                bookingId: _id
+                bookingId: _id,
+                categoryBookId
             }
             fetch('https://server-side-assignment12.vercel.app/payments', {
                 method: 'POST',

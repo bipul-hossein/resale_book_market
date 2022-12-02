@@ -7,7 +7,7 @@ useTitle('Blogs')
     return (
         <div className='bg-blue-100'>
 
-            <div className='py-9 w-10/12 mx-auto bg-blue-100'>
+            <div className='py-9 w-11/12 mx-auto bg-blue-100'>
                 <div className='my-8 bg-white p-4 rounded-lg border-solid border-2 '>
                     <h3 className='text-2xl text-start py-4'>1. What are the different ways to manage a state in a React application?</h3>
                     <p className='text-xl text-start'>When we talk about state in our applications, it’s important to be clear about what types of state actually matter.<br />

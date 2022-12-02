@@ -58,10 +58,6 @@ const AddProduct = () => {
                 navigate('/seller_dashboard/myproducts')
             }).catch(e => console.error(e))
             }})
-          
-      
-      
-
     }
 
 
@@ -75,7 +71,7 @@ const AddProduct = () => {
                         <label className="label"><span className="label-text">Category Name</span></label>
                         <select {...register("category", { required: "Category is Required" })} className="select select-bordered w-full">
                             {
-                                categoryData.map(data => <option >{data.categoryName}</option>
+                                categoryData.map((data,i )=> <option key={i} >{data.categoryName}</option>
                                 )
                             }
                         </select>
@@ -87,37 +83,35 @@ const AddProduct = () => {
                         <input type="text" {...register("bookName", { required: "Name is Required" })} placeholder="Type your Book Name" className="input input-bordered w-full" />
                         {errors.bookName && <p className='text-red-500'>{errors.bookName.message}</p>}
                     </div>
-                    <div className="form-control w-full">
-                        <label className="label"><span className="label-text">Writer</span></label>
+                    <div className="form-control w-full my-2">
                         <input type="text" {...register("writer", { required: "writer is Required" })} placeholder="Writer Name" className="input input-bordered w-full" />
                         {errors.writer && <p className='text-red-500'>{errors.writer.message}</p>}
                     </div>
 
                     <div className="form-control w-full">
-                        <label className="label"><span className="label-text">Book Image</span></label>
+                       
                         <input type="file" {...register("image", { required: "Image is Required" })} placeholder="Image Url" className="input input-bordered w-full" />
                         {errors.image && <p className='text-red-500'>{errors.image.message}</p>}
                     </div>
 
-                    <div className="form-control w-full">
-                        <label className="label"><span className="label-text">Book Age</span></label>
+                    <div className="form-control w-full my-2">
                         <input type="text" {...register("bookage", { required: "Book Age is Required" })} placeholder="Time Of Used" className="input input-bordered w-full" />
                         {errors.bookage && <p className='text-red-500'>{errors.bookage.message}</p>}
                     </div>
 
                     <div className="form-control w-full">
-                        <label className="label"><span className="label-text">Original Price</span></label>
+                       
                         <input type="text" {...register("originalprice", { required: "Original Price is Required" })} placeholder="Type Original Price" className="input input-bordered w-full" />
                         {errors.originalprice && <p className='text-red-500'>{errors.originalprice.message}</p>}
                     </div>
-                    <div className="form-control w-full">
-                        <label className="label"><span className="label-text">Selling Price</span></label>
+                    <div className="form-control w-full my-2">
+                        
                         <input type="text" {...register("sellprice", { required: "Selling Price is Required" })} placeholder="Selling Price" className="input input-bordered w-full" />
                         {errors.sellprice && <p className='text-red-500'>{errors.sellprice.message}</p>}
                     </div>
 
                     <div className="form-control w-full">
-                        <label className="label"><span className="label-text">Location</span></label>
+                        
                         <input type="text" {...register("location", { required: "Location is Required" })} placeholder="Your Location" className="input input-bordered w-full" />
                         {errors.location && <p className='text-red-500'>{errors.location.message}</p>}
                     </div>
