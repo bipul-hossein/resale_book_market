@@ -15,11 +15,11 @@ const [categoryData]= useCategoryData()
                 <h2 className='text-3xl text-blue-700 my-4 font-bold'>Book Categories</h2>
                 <Categories categories={categoryData}></Categories>
             </div>
-            <div className='my-10'><CusFeed></CusFeed></div>
             <div className='mt-10 bg-stone-200 rounded-md'>
-                <h2 className='p-4 text-3xl text-blue-700 my-4 font-bold'>Advertised items</h2>
                 <AdvertisedItems></AdvertisedItems>
             </div>
+            <div className='my-10'><CusFeed></CusFeed></div>
+            
         </div>
     );
 };

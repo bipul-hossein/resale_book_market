@@ -31,56 +31,63 @@ const AdvertisedItems = () => {
 
     return (
         <>
-        <div className='w-11/12 mx-auto mt-8'>
+            {
+                products.length >= 1 &&
+                <>
+                    <h2 className='p-4 text-3xl text-blue-700 my-4 font-bold'>Advertised items{products.length}</h2>
+                    <div className='w-11/12 mx-auto mt-8'>
 
-            <div className='grid mt-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                {
-                    products?.map((data, i) => <>
-                        <div key={i} className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={data?.image} alt="Shoes" className='h-48 w-full ' /></figure>
-                            <div className="card-body">
-                                <h2 className="card-title">
-                                    {data.productName}. writer: {data?.writer}
+                        <div className='grid mt-8 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                            {
+                                products?.map((data, i) => <>
+                                    <div key={i} className="card w-96 bg-base-100 shadow-xl">
+                                        <figure><img src={data?.image} alt="Shoes" className='h-48 w-full ' /></figure>
+                                        <div className="card-body">
+                                            <h2 className="card-title">
+                                                {data.productName}. writer: {data?.writer}
 
 
-                                    {
-                                        !data.paid ?
-                                            <button className='btn btn-primary btn-xs'> Available</button>
-                                            :
-                                            <button className='btn btn-secondary btn-xs'> sold</button>
-                                    }
+                                                {
+                                                    !data.paid ?
+                                                        <button className='btn btn-primary btn-xs'> Available</button>
+                                                        :
+                                                        <button className='btn btn-secondary btn-xs'> sold</button>
+                                                }
 
-                                </h2>
-                                <p>Seller:{data?.seller}</p>
-                                <div className='flex justify-between'>
-                                    <p>Selling Price:{data?.resalePrice}</p>
-                                    <p>Original Price:{data?.originalPrice}</p>
-                                </div>
+                                            </h2>
+                                            <p>Seller:{data?.seller}</p>
+                                            <div className='flex justify-between'>
+                                                <p>Selling Price:{data?.resalePrice}</p>
+                                                <p>Original Price:{data?.originalPrice}</p>
+                                            </div>
 
-                                <div className='card-actions justify-end'>
-                                    <span className='flex items-center gap-1'><MdLocationOn  className='text-orange-400 text-3xl'/>{data?.location}</span>
-                                </div>
-                                <div className="card-actions justify-end">
-                                    {
-                                        !data.paid && !isSeller && !isAdmin? <label onClick={() => setItem(data)} htmlFor="booking_modal"
-                                            className="btn btn-primary w-full text-white"
-                                        >Book Now</label> : <label onClick={hanleBookToast}
-                                            className="btn btn-secondary w-full text-white"
-                                        >Book Now</label>
-                                    }
-                                </div>
-                            </div>
+                                            <div className='card-actions justify-end'>
+                                                <span className='flex items-center gap-1'><MdLocationOn className='text-orange-400 text-3xl' />{data?.location}</span>
+                                            </div>
+                                            <div className="card-actions justify-end">
+                                                {
+                                                    !data.paid && !isSeller && !isAdmin ? <label onClick={() => setItem(data)} htmlFor="booking_modal"
+                                                        className="btn btn-primary w-full text-white"
+                                                    >Book Now</label> : <label onClick={hanleBookToast}
+                                                        className="btn btn-secondary w-full text-white"
+                                                    >Book Now</label>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+
+                                )
+                            }
                         </div>
-                    </>
+                        {(item) && <BookingModel item={item} setItem={setItem}></BookingModel>
 
-                    )
-                }
-            </div>
-            {(item) && <BookingModel item={item} setItem={setItem}></BookingModel>
-
+                        }
+                    </div>
+                </>
             }
-        </div>
-    </>
+
+        </>
     );
 };
 
