@@ -15,10 +15,10 @@ const MyProducts = () => {
             return data;
         }
     });
-
     const handleDeleteBook = (book) => {
         const agree = window.confirm(`you want to delete${book.productName}`)
 
+        console.log(book)
         if (agree) {
 
             fetch(`https://server-side-assignment12.vercel.app/book/${book._id}`, {
@@ -96,7 +96,7 @@ const MyProducts = () => {
                                         book?.paid && <span className='text-green-500'>sold</span>
                                     }
                                 </td>
-                                <td><button onClick={() => handleDeleteBook(book._id)} className='btn btn-xs btn-danger'>Delete</button></td>
+                                <td><button onClick={() => handleDeleteBook(book)} className='btn btn-xs btn-danger'>Delete</button></td>
                             </tr>)
                         }
 
