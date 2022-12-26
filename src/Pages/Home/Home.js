@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from '../../components/share/Spinner';
 import useCategoryData from '../../hooks/useCategoryData';
 import AdvertisedItems from './AdvertisedItems';
 import CusFeed from './CusFeed';
@@ -13,7 +14,12 @@ const [categoryData]= useCategoryData()
             <Hero></Hero>
             <div className='my-16'>
                 <h2 className='text-3xl text-blue-700 my-4 font-bold'>Book Categories</h2>
-                <Categories categories={categoryData}></Categories>
+        {
+            !categoryData?
+            <Spinner/>
+            :  <Categories categories={categoryData}></Categories>
+        }
+                
             </div>
             <div className='mt-10 bg-stone-200 rounded-md'>
                 <AdvertisedItems></AdvertisedItems>

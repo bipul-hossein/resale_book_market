@@ -32,7 +32,7 @@ const Category = () => {
                                 <div className="card-body">
 
                                     {/* varigfed tik */}
-                                   
+
 
                                     <h2 className="card-title">
                                         {data.productName}. writer: {data?.writer}
@@ -58,7 +58,7 @@ const Category = () => {
                                     </div>
                                     <div className="card-actions justify-end">
                                         {
-                                            !data.paid && !isSeller && !isAdmin ? <label onClick={() => setItem(data)} htmlFor="booking_modal"
+                                            user && !data.paid && !isSeller && !isAdmin ? <label onClick={() => setItem(data)} htmlFor="booking_modal"
                                                 className="btn btn-primary w-full text-white"
                                             >Book Now</label> : <label disabled onClick={hanleBookToast}
                                                 className="btn btn-secondary w-full text-white"
